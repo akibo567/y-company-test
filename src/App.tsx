@@ -6,7 +6,10 @@ import "./App.css";
 const App = () => {
   return (
     <div className="App">
-      <Graph/>
+
+      <Graph
+        graph_data={[3, 4, 5]}
+      />
     </div>
   );
 }
