@@ -1,0 +1,19 @@
+{
+  "message": null,
+  "result": [{
+      "prefCode": 1,
+      "prefName": "テスト1県"
+  }, {
+      "prefCode": 2,
+      "prefName": "テスト2県"
+  }, {
+      "prefCode": 3,
+      "prefName": "テスト3県"
+  }, {
+      "prefCode": 4,
+      "prefName": "テスト4県"
+  }, {
+      "prefCode": 5,
+      "prefName": "テスト5県"
+  }]
+}
