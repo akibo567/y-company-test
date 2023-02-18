@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
-import Highcharts, {PointOptionsObject} from 'highcharts';
+import Highcharts, {PointOptionsObject, SeriesOptionsType} from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 
 type Props = {
-  graph_data: (number | [string | number, number | null] | PointOptionsObject | null)[] | undefined
+  //graph_data: (number | [string | number, number | null] | PointOptionsObject | null)[] | undefined,
+  graph_series: SeriesOptionsType[]
 }
 
 const Graph = (props : Props) => {
@@ -13,13 +14,7 @@ const Graph = (props : Props) => {
     title: {
       text: 'My chart'
     },
-    series: [{
-      type: 'line',
-      data: props.graph_data
-    },{
-      type: 'line',
-      data: [1, 2, 3]
-    }]
+    series: props.graph_series
   };
 
   const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
