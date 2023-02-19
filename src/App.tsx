@@ -83,7 +83,8 @@ const App = () => {
         console.log(val);
 
         single_series = {
-          type: 'line',
+          type: "line",
+          name: single_Prefecture_Volumes.prefName,
           data: single_Prefecture_Volumes.data
         };
 

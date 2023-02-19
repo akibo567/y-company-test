@@ -12,7 +12,46 @@ const Graph = (props : Props) => {
 
   const options: Highcharts.Options = {
     title: {
-      text: 'My chart'
+      text: "人口動態"
+    },
+    subtitle: {
+      text: "Source: 内閣府 地方創生推進室"
+    },
+    yAxis: {
+      title: {
+        text: "人口"
+      }
+    },
+    xAxis: {
+      title: {
+        text: "年度"
+      }
+    },
+    legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle'
+    },
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 500
+        },
+        chartOptions: {
+          legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom'
+          }
+        }
+      }]
+    },
+    plotOptions: {
+      series: {
+        label: {
+          connectorAllowed: false
+        },
+      }
     },
     series: props.graph_series
   };
