@@ -1,9 +1,5 @@
 import React, { Dispatch,SetStateAction,useEffect } from "react";
-
-interface Prefceture_Interface {
-  prefCode: number;
-  prefName: string;
-}
+import {Prefceture_Interface} from "../Interfaces";
 
 type Props = {
   prfecture_list: Prefceture_Interface[],

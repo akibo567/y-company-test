@@ -1,21 +1,15 @@
 import React, {useState} from "react";
 import axios from "axios";
 
-import Header from "./components/Header"
-import Graph from "./components/Graph"
-import Prefecture_Select from "./components/Prefecture_Select"
+import Header from "./components/Header";
+import Graph from "./components/Graph";
+import Prefecture_Select from "./components/Prefecture_Select";
+
+import {Prefecture_Volumes_Interface} from "./Interfaces";
 
 import "./App.css";
 
 import {SeriesOptionsType} from 'highcharts';
-
-
-interface Prefecture_Volumes_Interface {
-  prefCode: number;
-  prefName: string;
-  data: number[][];
-}
-
 
 const axios_instance = axios.create({
   baseURL: "https://opendata.resas-portal.go.jp/api/v1",
