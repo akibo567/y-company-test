@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import axios from "axios";
 
 import Header from "./components/Header";
@@ -94,7 +94,7 @@ const App = () => {
   /**
    * チェックボックスが変更された際の処理
    */
-  const change_Prefecture_Select_Values = () => {
+  useEffect(() => {
     const graph_series: SeriesOptionsType[] = new Array<SeriesOptionsType>();
     Prefecture_Select_Values.map((val: number) => {
       const single_Prefecture_Volumes:
@@ -112,7 +112,8 @@ const App = () => {
       }
     });
     Set_Prefecture_Volume_Series(graph_series);
-  };
+  }, [Prefecture_Select_Values]);
+
 
   return (
     <div className="App">
@@ -135,7 +136,6 @@ const App = () => {
         prfecture_list={Prefecture_Data}
         Prefecture_Select_Values={Prefecture_Select_Values}
         Set_Prefecture_Select_Values={Set_Prefecture_Select_Values}
-        change_Prefecture_Select_Values={change_Prefecture_Select_Values}
       />
       <Graph graph_series={Prefecture_Volume_Series} />
     </div>

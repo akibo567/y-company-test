@@ -5,7 +5,6 @@ type Props = {
   prfecture_list: Prefceture_Interface[];
   Prefecture_Select_Values: number[];
   Set_Prefecture_Select_Values: Dispatch<SetStateAction<number[]>>;
-  change_Prefecture_Select_Values: any;
 };
 
 /**県選択チェックボックスが入るコンテナ */
@@ -24,10 +23,6 @@ const Prefecture_Select = (props: Props) => {
       ]);
     }
   };
-
-  useEffect(() => {
-    props.change_Prefecture_Select_Values();
-  }, [props.Prefecture_Select_Values]);
 
   return (
     <>
