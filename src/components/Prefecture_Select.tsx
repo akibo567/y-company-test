@@ -1,4 +1,4 @@
-import React, { useState,Dispatch,SetStateAction } from "react";
+import React, { useState,Dispatch,SetStateAction,useEffect } from "react";
 import Highcharts, {PointOptionsObject, SeriesOptionsType} from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
@@ -10,7 +10,8 @@ interface Prefceture_Interface {
 type Props = {
   prfecture_list: Prefceture_Interface[],
   Prefecture_Select_Values: number[],
-  Set_Prefecture_Select_Values: Dispatch<SetStateAction<number[]>>
+  Set_Prefecture_Select_Values: Dispatch<SetStateAction<number[]>>,
+  change_Prefecture_Select_Values: any,
 };
 
 const Prefecture_Select = (props : Props) => {
@@ -24,6 +25,10 @@ const Prefecture_Select = (props : Props) => {
       props.Set_Prefecture_Select_Values([...props.Prefecture_Select_Values, val]);
     }    
   };
+
+  useEffect(() => {
+    props.change_Prefecture_Select_Values();
+  }, [props.Prefecture_Select_Values]);
 
   return (
     <>
