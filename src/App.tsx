@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Header from "./components/Header";
@@ -53,7 +53,6 @@ const App = () => {
     axios_instance
       .get("/prefectures")
       .then(function (response) {
-        console.log(response);
         Set_Prefecture_Data(response.data.result);
         response.data.result.map((item: Prefceture_Interface) => {
           Get_Prefecture_Volume(item.prefCode, item.prefName);
@@ -114,7 +113,6 @@ const App = () => {
     });
     Set_Prefecture_Volume_Series(graph_series);
   }, [Prefecture_Select_Values]);
-
 
   return (
     <div className="App">
