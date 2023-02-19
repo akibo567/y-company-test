@@ -37,9 +37,9 @@
   border: dashed 2px #61dafb;
 }
 
-.App-header {
+header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;

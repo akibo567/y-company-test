@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 
+import Header from "./components/Header"
 import Graph from "./components/Graph"
 import Prefecture_Select from "./components/Prefecture_Select"
 
@@ -97,6 +98,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header/>
       <div className="load_button_container">
         <button 
           onClick={()=>{Get_Prefecture_Data()}}
