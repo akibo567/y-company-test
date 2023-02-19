@@ -30,11 +30,13 @@ const App = () => {
 
   const [Load_Button_Visible, Set_Load_Button_Visible] = useState<boolean>(true);
 
-
+  /**ロードボタンが押下された時の処理*/
   const Load_Button_Onclick = () =>{
     Set_Load_Button_Visible(false);
     Get_Prefecture_Data();
   };
+
+  /**県データ一覧を取得*/
   const Get_Prefecture_Data = () =>{
     axios_instance.get('/prefectures')
       .then(function (response) {
@@ -45,10 +47,15 @@ const App = () => {
         );
       })
       .catch(function (error) {
-        console.log(error);
+        Set_Load_Button_Visible(true);
       });
   }
 
+  /**県の人口一覧を取得
+   * 
+   * @param prefCode 県コード
+   * @param prefName 県名
+  */
   const Get_Prefecture_Volume = (prefCode: number,prefName: string) =>{
     axios_instance.get('/population/composition/perYear', {
       params: {
@@ -66,10 +73,13 @@ const App = () => {
         ]);
       })
       .catch(function (error) {
-        console.log(error);
+        Set_Load_Button_Visible(true);
       });
   }
 
+  /**
+   * チェックボックスが変更された際の処理
+   */
   const change_Prefecture_Select_Values = ()=>{
     const graph_series: SeriesOptionsType[] = new Array<SeriesOptionsType>();
     Prefecture_Select_Values.map((val:number)=>{
@@ -88,7 +98,6 @@ const App = () => {
     });
     Set_Prefecture_Volume_Series(graph_series);
   };
-
 
   return (
     <div className="App">
@@ -116,7 +125,7 @@ const App = () => {
 
 
 
-//1県の実行動態データのコンバートを行う関数
+/**1県の実行動態データのコンバートを行う関数*/
 const Convert_Single_Volume_Data = (data:any) =>{
   const graph_data: number[][] = new Array<number[]>();
   const targetData = data.find((v:any) => v.label === "総人口");

@@ -8,6 +8,7 @@ type Props = {
   graph_series: SeriesOptionsType[]
 }
 
+/** 人口動態を表示するグラフ*/
 const Graph = (props : Props) => {
 
   const options: Highcharts.Options = {

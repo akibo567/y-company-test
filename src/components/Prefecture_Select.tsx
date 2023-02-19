@@ -8,6 +8,7 @@ type Props = {
   change_Prefecture_Select_Values: any,
 };
 
+/**県選択チェックボックスが入るコンテナ */
 const Prefecture_Select = (props : Props) => {
 
   const handleChange = (val : number) => {
