@@ -118,8 +118,6 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      {process.env.REACT_APP_API_TEST}
-
       {Load_Button_Visible ? (
         <div className="load_button_container">
           <button
