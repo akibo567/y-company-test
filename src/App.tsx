@@ -37,8 +37,13 @@ const App = () => {
   const [Prefecture_Volumes, Set_Prefecture_Volumes] = useState<Prefecture_Volumes_Interface[]>([]);
   const [Prefecture_Volume_Series, Set_Prefecture_Volume_Series] = useState<SeriesOptionsType[]>([]);
 
+  const [Load_Button_Visible, Set_Load_Button_Visible] = useState<boolean>(true);
 
 
+  const Load_Button_Onclick = () =>{
+    Set_Load_Button_Visible(false);
+    Get_Prefecture_Data();
+  };
   const Get_Prefecture_Data = () =>{
     axios_instance.get('/prefectures')
       .then(function (response) {
@@ -99,13 +104,14 @@ const App = () => {
   return (
     <div className="App">
       <Header/>
-      <div className="load_button_container">
-        <button 
-          onClick={()=>{Get_Prefecture_Data()}}
-          className="load_button">
-        Load RESEAS
-        </button>
-      </div>
+      {Load_Button_Visible ?
+        <div className="load_button_container">
+          <button 
+            onClick={()=>{Load_Button_Onclick()}}
+            className="load_button">
+          Load RESEAS
+          </button>
+        </div>:''}
       <Prefecture_Select
         prfecture_list={Prefecture_Data}
         Prefecture_Select_Values={Prefecture_Select_Values}
