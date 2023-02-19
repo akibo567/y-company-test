@@ -7,10 +7,7 @@ import Prefecture_Select from "./components/Prefecture_Select"
 
 import "./App.css";
 
-import {PointOptionsObject, SeriesOptionsType} from 'highcharts';
-
-import Dummy_Prefecture from "./dummy_prefecture.json";
-import Dummy_Volume from "./dummy_volume.json";
+import {SeriesOptionsType} from 'highcharts';
 
 
 interface Prefecture_Volumes_Interface {
@@ -86,8 +83,6 @@ const App = () => {
         Prefecture_Volumes.find((v) => v.prefCode === val);
       let single_series: SeriesOptionsType;
       if(single_Prefecture_Volumes){
-        console.log(val);
-
         single_series = {
           type: "line",
           name: single_Prefecture_Volumes.prefName,
@@ -119,7 +114,6 @@ const App = () => {
         change_Prefecture_Select_Values={change_Prefecture_Select_Values}
       />
       <Graph
-        //graph_data={Dummy_Volume.result.data}
         graph_series={Prefecture_Volume_Series}
       />
     </div>
@@ -137,19 +131,6 @@ const Convert_Single_Volume_Data = (data:any) =>{
   });
 
   return graph_data;
-}
-
-//複数県の実行動態データをグラフデータの形に変更する関数
-const Set_Prefecture_Volume_Series = (data:any) =>{
-  const graph_series: SeriesOptionsType[] = new Array<SeriesOptionsType>();
-  const single_series: SeriesOptionsType = {
-    type: 'line',
-    data: Convert_Single_Volume_Data(data.result.data)
-  };
-
-  graph_series.push(single_series);
-
-  return graph_series;
 }
 
 export default App;

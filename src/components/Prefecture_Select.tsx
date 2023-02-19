@@ -1,6 +1,4 @@
-import React, { useState,Dispatch,SetStateAction,useEffect } from "react";
-import Highcharts, {PointOptionsObject, SeriesOptionsType} from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
+import React, { Dispatch,SetStateAction,useEffect } from "react";
 
 interface Prefceture_Interface {
   prefCode: number;

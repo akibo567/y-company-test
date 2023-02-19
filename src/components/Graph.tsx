@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import Highcharts, {PointOptionsObject, SeriesOptionsType} from 'highcharts';
+import Highcharts, {SeriesOptionsType} from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 
