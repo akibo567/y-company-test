@@ -26,7 +26,6 @@ const axios_instance = axios.create({
 });
 
 const App = () => {
-  {process.env.REACT_APP_API_TEST}
   const [Prefecture_Select_Values, Set_Prefecture_Select_Values] = useState<
     number[]
   >([]);
@@ -119,6 +118,8 @@ const App = () => {
   return (
     <div className="App">
       <Header />
+      {process.env.REACT_APP_API_TEST}
+
       {Load_Button_Visible ? (
         <div className="load_button_container">
           <button
