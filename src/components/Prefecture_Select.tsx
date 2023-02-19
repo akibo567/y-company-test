@@ -40,7 +40,9 @@ const Prefecture_Select = (props : Props) => {
                 onChange={() => {handleChange(item.prefCode)}}
                 value={item.prefCode}
               />
-              {item.prefName}
+              <div className="label_text">
+                {item.prefName}
+              </div>
             </div>
           );
         }

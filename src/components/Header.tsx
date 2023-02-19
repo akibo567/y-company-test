@@ -5,7 +5,7 @@ const Header = () => {
 
   return (
     <header className="Header">
-      <h1>都道府県人口動態</h1>
+      <h1 className="aaa">都道府県人口動態</h1>
     </header>
   );
 }

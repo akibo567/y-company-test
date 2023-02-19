@@ -26,7 +26,8 @@ const Graph = (props : Props) => {
     xAxis: {
       title: {
         text: "年度"
-      }
+      },
+      tickInterval: 5,
     },
     legend: {
       layout: 'vertical',
