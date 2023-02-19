@@ -1,21 +1,21 @@
-.App .load_button_container{
+.App .load_button_container {
   text-align: center;
   margin-top: 10px;
 }
 
-.App .load_button_container .load_button{
+.App .load_button_container .load_button {
   max-width: 200px;
-  height :50px;
+  height: 50px;
   background-color: #282c34;
   color: white;
   border-radius: 10px;
 }
 
-.App .graph{
+.App .graph {
   margin-top: 30px;
 }
 
-.App .prefecture_checkbox_container{
+.App .prefecture_checkbox_container {
   margin-top: 20px;
   margin-right: 10px;
   margin-left: 10px;
@@ -24,25 +24,27 @@
   padding-right: 5px;
 
   display: flex;
-  flex-wrap : wrap;
+  flex-wrap: wrap;
 }
 
-.App .prefecture_checkbox_container .prefecture_checkbox_label{
+.App .prefecture_checkbox_container .prefecture_checkbox_label {
   margin-top: 10px;
   margin-left: 10px;
-  padding:5px;
+  padding: 5px;
   border: dashed 2px #61dafb;
 }
 
-.App .prefecture_checkbox_container .prefecture_checkbox_label input[type=checkbox]{
+.App
+  .prefecture_checkbox_container
+  .prefecture_checkbox_label
+  input[type="checkbox"] {
   transform: scale(1.5);
 }
 
-.App .prefecture_checkbox_container .prefecture_checkbox_label .label_text{
+.App .prefecture_checkbox_container .prefecture_checkbox_label .label_text {
   display: inline-block;
   margin-left: 5px;
 }
-
 
 header {
   background-color: #282c34;
@@ -52,7 +54,6 @@ header {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-
 }
 
 header h1 {
