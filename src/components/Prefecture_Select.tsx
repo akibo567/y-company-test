@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { Prefceture_Interface } from "../Interfaces";
 
 type Props = {
