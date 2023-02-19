@@ -26,6 +26,7 @@ const axios_instance = axios.create({
 });
 
 const App = () => {
+  {process.env.REACT_APP_API_TEST}
   const [Prefecture_Select_Values, Set_Prefecture_Select_Values] = useState<
     number[]
   >([]);
