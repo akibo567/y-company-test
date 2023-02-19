@@ -9,3 +9,12 @@ export interface Prefceture_Interface {
   prefName: string;
 }
 
+export interface Single_Prefceture_Volumes_data_Interface {
+  data: Single_Prefceture_Volumes_data_Interface_data[];
+  label: string;
+}
+
+export interface Single_Prefceture_Volumes_data_Interface_data {
+  year: number;
+  value: number;
+}

@@ -5,7 +5,11 @@ import Header from "./components/Header";
 import Graph from "./components/Graph";
 import Prefecture_Select from "./components/Prefecture_Select";
 
-import {Prefecture_Volumes_Interface} from "./Interfaces";
+import {Prefecture_Volumes_Interface,
+  Prefceture_Interface,
+  Single_Prefceture_Volumes_data_Interface,
+  Single_Prefceture_Volumes_data_Interface_data
+} from "./Interfaces";
 
 import "./App.css";
 
@@ -24,7 +28,7 @@ const axios_instance = axios.create({
 
 const App = () => {
   const [Prefecture_Select_Values, Set_Prefecture_Select_Values] = useState<number[]>([]);
-  const [Prefecture_Data, Set_Prefecture_Data] = useState<any>([]);
+  const [Prefecture_Data, Set_Prefecture_Data] = useState<Prefceture_Interface[]>([]);
   const [Prefecture_Volumes, Set_Prefecture_Volumes] = useState<Prefecture_Volumes_Interface[]>([]);
   const [Prefecture_Volume_Series, Set_Prefecture_Volume_Series] = useState<SeriesOptionsType[]>([]);
 
@@ -41,12 +45,12 @@ const App = () => {
     axios_instance.get('/prefectures')
       .then(function (response) {
         Set_Prefecture_Data(response.data.result);
-        response.data.result.map((item:any)=>{
+        response.data.result.map((item:Prefceture_Interface)=>{
           Get_Prefecture_Volume(item.prefCode, item.prefName);
         }
         );
       })
-      .catch(function (error) {
+      .catch(function () {
         Set_Load_Button_Visible(true);
       });
   }
@@ -64,6 +68,8 @@ const App = () => {
       }
     })
       .then(function (response) {
+        console.log(prefCode);
+
         Set_Prefecture_Volumes((prev) =>[...prev,
           {prefCode: prefCode,
             prefName: prefName,
@@ -72,7 +78,7 @@ const App = () => {
           }
         ]);
       })
-      .catch(function (error) {
+      .catch(function () {
         Set_Load_Button_Visible(true);
       });
   }
@@ -126,13 +132,14 @@ const App = () => {
 
 
 /**1県の実行動態データのコンバートを行う関数*/
-const Convert_Single_Volume_Data = (data:any) =>{
+const Convert_Single_Volume_Data = (data:Single_Prefceture_Volumes_data_Interface[]) =>{
   const graph_data: number[][] = new Array<number[]>();
-  const targetData = data.find((v:any) => v.label === "総人口");
-  targetData.data.map((item:any)=>{
-    graph_data.push([item.year,item.value]);
-  });
-
+  const targetData = data.find((v:Single_Prefceture_Volumes_data_Interface) => v.label === "総人口");
+  if(targetData){
+    targetData.data.map((item:Single_Prefceture_Volumes_data_Interface_data)=>{
+      graph_data.push([item.year,item.value]);
+    });
+  }
   return graph_data;
 }
 
