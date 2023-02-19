@@ -32,22 +32,25 @@ const Prefecture_Select = (props : Props) => {
 
   return (
     <>
-      {props.prfecture_list.map((item:Prefceture_Interface)=>
-      {
-        return(
-          <label key={item.prefCode}>
-            <input
-              type="checkbox"
-              name="inputNames"
-              checked={props.Prefecture_Select_Values.includes(item.prefCode)}
-              onChange={() => {handleChange(item.prefCode)}}
-              value={item.prefCode}
-            />
-            {item.prefName}
-          </label>
-        );
-      }
-      )}
+      <div className="prefecture_checkbox_container">
+        {props.prfecture_list.map((item:Prefceture_Interface)=>
+        {
+          return(
+            <div key={item.prefCode} className="prefecture_checkbox_label">
+              <input
+                type="checkbox"
+                name="inputNames"
+                className="prefecture_checkbox"
+                checked={props.Prefecture_Select_Values.includes(item.prefCode)}
+                onChange={() => {handleChange(item.prefCode)}}
+                value={item.prefCode}
+              />
+              {item.prefName}
+            </div>
+          );
+        }
+        )}
+      </div>
     </>
   );
 

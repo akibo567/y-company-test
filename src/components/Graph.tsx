@@ -58,10 +58,12 @@ const Graph = (props : Props) => {
 
   const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
   return (
-    <HighchartsReact
-      highcharts={Highcharts}
-      options={options}
-      ref={chartComponentRef}/>
+    <div className="graph">
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={options}
+        ref={chartComponentRef}/>
+    </div>
   );
 }
 

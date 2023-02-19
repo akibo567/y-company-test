@@ -97,9 +97,13 @@ const App = () => {
 
   return (
     <div className="App">
-      <button onClick={()=>{Get_Prefecture_Data()}}>
+      <div className="load_button_container">
+        <button 
+          onClick={()=>{Get_Prefecture_Data()}}
+          className="load_button">
         Load RESEAS
-      </button>
+        </button>
+      </div>
       <Prefecture_Select
         prfecture_list={Prefecture_Data}
         Prefecture_Select_Values={Prefecture_Select_Values}
